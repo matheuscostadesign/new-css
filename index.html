@@ -61,7 +61,23 @@
     Aqui vai um texto qualquer
   </blockquote>
 
+  <h2>Imagem</h2>
 
+  <img src="img.png" id="mostrarImagem" width="300" height="300" style="object-fit: cover;"><br>
+
+  <button id="button">Mostrar imagem do Github</button>
+
+  <script>
+    document.getElementById('button').addEventListener('click', function () {
+      fetch('https://api.github.com/users/matheuscostadesign')
+        .then((response) => {
+          return response.json();
+        })
+        .then((avatarApi) => {
+          mostrarImagem.src = avatarApi['avatar_url']; // avatar_url é o atributo do json
+        })
+    }, false);
+  </script>
 
 </body>
 
