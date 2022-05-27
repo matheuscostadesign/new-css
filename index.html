@@ -61,11 +61,19 @@
     Aqui vai um texto qualquer
   </blockquote>
 
-  <h2>Imagem</h2>
+  <h2>Foto</h2>
 
   <img src="img.png" id="mostrarImagem" width="300" height="300" style="object-fit: cover;"><br>
 
   <button id="button">Mostrar imagem do Github</button>
+
+  <br>
+
+  <h3>Usuário do Github:</h3>
+  <span id="nomePessoa"></span>
+
+  <h3>Empresa:</h3>
+  <p id="nomeEmpresa"></p>
 
   <script>
     document.getElementById('button').addEventListener('click', function () {
@@ -73,8 +81,10 @@
         .then((response) => {
           return response.json();
         })
-        .then((avatarApi) => {
-          mostrarImagem.src = avatarApi['avatar_url']; // avatar_url é o atributo que esta na API/json
+        .then((dadosJson) => {
+          mostrarImagem.src = dadosJson['avatar_url']; // avatar_url é o atributo que esta na API/json
+          document.getElementById("nomePessoa").innerHTML = dadosJson['name'];
+          document.getElementById("nomeEmpresa").innerHTML = dadosJson['company'];
         })
     }, false);
   </script>
