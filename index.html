@@ -74,7 +74,7 @@
           return response.json();
         })
         .then((avatarApi) => {
-          mostrarImagem.src = avatarApi['avatar_url']; // avatar_url é o atributo do json
+          mostrarImagem.src = avatarApi['avatar_url']; // avatar_url é o atributo que esta na API/json
         })
     }, false);
   </script>
