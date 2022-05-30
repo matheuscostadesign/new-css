@@ -63,28 +63,33 @@
 
   <h2>Foto</h2>
 
-  <img src="img.png" id="mostrarImagem" width="300" height="300" style="object-fit: cover;"><br>
+  <img src="img.png" id="fotoPessoa" width="300" height="300" style="object-fit: cover;"><br>
 
-  <button id="button">Mostrar imagem do Github</button>
+  <button id="carregarDadosGithub">Mostrar dados do Github</button>
 
-  <br>
+  <br><br>
 
   <h3>Usuário do Github:</h3>
-  <span id="nomePessoa"></span>
+  <p id="nomePessoa"></p>
 
   <h3>Empresa:</h3>
   <p id="nomeEmpresa"></p>
 
+  <h3>Cidade:</h3>
+  <p id="cidadePessoa"></p>
+
   <script>
-    document.getElementById('button').addEventListener('click', function () {
+    document.getElementById('carregarDadosGithub').addEventListener('click', function () {
       fetch('https://api.github.com/users/matheuscostadesign')
         .then((response) => {
           return response.json();
         })
         .then((dadosJson) => {
-          mostrarImagem.src = dadosJson['avatar_url']; // avatar_url é o atributo que esta na API/json
+          //fotoPessoa.src = dadosJson['avatar_url']; // avatar_url é o atributo que esta na API/json
+          document.getElementById("fotoPessoa").src = dadosJson['avatar_url'];
           document.getElementById("nomePessoa").innerHTML = dadosJson['name'];
           document.getElementById("nomeEmpresa").innerHTML = dadosJson['company'];
+          document.getElementById("cidadePessoa").innerHTML = dadosJson['location'];
         })
     }, false);
   </script>
