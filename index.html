@@ -63,20 +63,21 @@
 
   <h2>Foto</h2>
 
-  <img src="img.png" id="fotoPessoa" width="300" height="300" style="object-fit: cover;"><br>
+  <img src="img.png" id="fotoPessoa" width="200" height="200"
+    style="object-fit: cover; clip-path: circle(); transition: all .3s;"><br>
 
   <button id="carregarDadosGithub">Mostrar dados do Github</button>
 
   <br><br>
 
   <h3>Usuário do Github:</h3>
-  <p id="nomePessoa"></p>
+  <p id="nomePessoa">Nome...</p>
 
   <h3>Empresa:</h3>
-  <p id="nomeEmpresa"></p>
+  <p id="nomeEmpresa">Empresa...</p>
 
   <h3>Cidade:</h3>
-  <p id="cidadePessoa"></p>
+  <p id="cidadePessoa">Cidade...</p>
 
   <script>
     document.getElementById('carregarDadosGithub').addEventListener('click', function () {
